@@ -6,7 +6,6 @@ const Pagination = ({ totalPages }) => {
   const newArray = [...Array(totalPages)].map((_, i) => i + 1);
 
   const { pushQuery, query } = useCustomRouter();
-  console.log('🚀 ~ file: Pagination.jsx:9 ~ Pagination ~ query:', query);
 
   return (
     <div className="flex items-center justify-center my-8 space-x-2">

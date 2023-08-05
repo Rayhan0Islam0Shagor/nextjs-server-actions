@@ -4,8 +4,8 @@ import Pagination from '@/components/Pagination';
 import PostForm from '@/components/PostForm';
 import PostList from '@/components/PostList';
 
-export default async function Home({ params, searchParams }) {
-  const { posts, totalPages, count } = await getPosts(searchParams);
+export default async function Home({ searchParams }) {
+  const { posts, totalPages } = await getPosts(searchParams);
 
   return (
     <main className="flex flex-col items-center justify-between min-h-screen p-10">

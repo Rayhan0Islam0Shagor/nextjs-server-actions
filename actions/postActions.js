@@ -9,7 +9,7 @@ connectDB();
 export const getPosts = async (searchParams) => {
   const search = searchParams.search || '';
   const sort = searchParams.sort || 'createdAt';
-  const limit = searchParams.limit * 1 || 2;
+  const limit = searchParams.limit * 1 || 3;
   const page = searchParams.page * 1 || 1;
   const skip = searchParams.skip * 1 || (page - 1) * limit;
 
