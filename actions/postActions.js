@@ -6,14 +6,55 @@ import { revalidateTag } from 'next/cache';
 
 connectDB();
 
-export const getPosts = async () => {
-  try {
-    const posts = await postModel.find({});
+export const getPosts = async (searchParams) => {
+  const search = searchParams.search || '';
+  const sort = searchParams.sort || 'createdAt';
+  const limit = searchParams.limit * 1 || 2;
+  const page = searchParams.page * 1 || 1;
+  const skip = searchParams.skip * 1 || (page - 1) * limit;
 
-    return posts.map((post) => ({
+  try {
+    const posts = await postModel
+      .find({
+        title: {
+          $regex: search,
+        },
+      })
+      .sort(sort)
+      .limit(limit)
+      .skip(skip);
+
+    const count = await postModel.countDocuments({
+      title: {
+        $regex: search,
+      },
+    });
+
+    const totalPages = Math.ceil(count / limit);
+
+    const newPosts = posts.map((post) => ({
       ...post._doc,
       _id: post._id.toString(),
     }));
+
+    return {
+      posts: newPosts,
+      totalPages,
+      count,
+    };
+  } catch (error) {
+    throw new Error(error.message || 'Server Error');
+  }
+};
+
+export const getPostById = async (id) => {
+  try {
+    const post = await postModel.findById(id);
+
+    return {
+      ...post._doc,
+      _id: post._id.toString(),
+    };
   } catch (error) {
     throw new Error(error.message || 'Server Error');
   }

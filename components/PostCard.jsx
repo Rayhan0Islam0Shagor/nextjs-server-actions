@@ -3,6 +3,7 @@ import * as React from 'react';
 import { usePostContext } from '@/context/PostProvider';
 import timeAgo from '@/utils/timeAgo';
 import Image from 'next/image';
+import Link from 'next/link';
 // import { deletePost } from '@/actions/postActions';
 
 const PostCard = ({ post, handleDelete }) => {
@@ -17,7 +18,9 @@ const PostCard = ({ post, handleDelete }) => {
 
   return (
     <div className="flex flex-col items-center w-full p-4 my-4 rounded-md">
-      <h2 className="text-2xl font-bold">{post.title}</h2>
+      <Link href={`/post/${post._id}`} className="text-2xl font-bold">
+        {post.title}
+      </Link>
 
       <Image
         src={post.image}
