@@ -36,6 +36,7 @@ const PostForm = () => {
         required
         className="w-1/2 px-2 border-2 border-gray-300 rounded-md"
         defaultValue={editPost?.title}
+        aria-label="title"
       />
       <input
         type="text"
@@ -44,6 +45,7 @@ const PostForm = () => {
         required
         className="w-1/2 px-2 border-2 border-gray-300 rounded-md"
         defaultValue={editPost?.image}
+        aria-label="image"
       />
 
       {editPost ? (

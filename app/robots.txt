@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /posts/
+
+Sitemap: https://nextjs-server-actions-dusky.vercel.app/sitemap.xml

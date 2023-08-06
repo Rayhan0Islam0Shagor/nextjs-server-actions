@@ -1,19 +1,24 @@
 import mongoose from 'mongoose';
 
-const connectDB = () => {
-  if (mongoose.connections[0].readyState) {
-    console.log('Already connected.');
-    return;
-  }
+const connectDB = async () => {
+  try {
+    if (mongoose.connections[0].readyState) {
+      console.log('Already connected.');
+      return true;
+    }
 
-  mongoose
-    .connect(process.env.MONGODB_URI)
-    .then(() => {
-      console.log('Connected to MongoDB');
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    await mongoose
+      .connect(process.env.MONGODB_URI)
+      .then(() => {
+        console.log('Connected to MongoDB');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    return true;
+  } catch (error) {
+    console.log('🚀 ~ file: mongodb.js:19 ~ connectDB ~ error:', error);
+  }
 };
 
 export default connectDB;

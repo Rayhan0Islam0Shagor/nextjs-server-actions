@@ -28,7 +28,7 @@ const PostCard = ({ post, handleDelete }) => {
         height={500}
         alt={post.title}
         className="object-cover object-center w-full my-4 rounded-md h-80"
-        sizes="(max-width: 640px) 640px, 500px"
+        sizes="20vw"
         quality={100}
         priority
       />
