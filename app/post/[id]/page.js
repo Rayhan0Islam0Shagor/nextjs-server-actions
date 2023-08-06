@@ -24,9 +24,9 @@ const PostDetails = async ({ params: { id } }) => {
 
   return (
     <main className="flex flex-col items-center justify-between min-h-screen p-10">
-      <h1 className="mb-10 text-4xl font-bold tracking-tighter text-center text-gray-800 md:text-5xl lg:text-6xl">
+      <p className="mb-10 text-4xl font-bold tracking-tighter text-center text-gray-800 md:text-5xl lg:text-6xl">
         Post Details
-      </h1>
+      </p>
       {post && <PostCard post={post} />}
     </main>
   );
