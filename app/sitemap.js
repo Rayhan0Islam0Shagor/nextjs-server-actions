@@ -1,10 +1,9 @@
-import { getPosts } from '@/actions/postActions';
 import connectDB from '@/database/mongodb';
 import postModel from '@/models/postModel';
 
 export default async function sitemap() {
   await connectDB();
-  const baseURL = 'https://nextjs-server-actions-dusky.vercel.app';
+  const baseURL = 'https://nextjs-seo-rayhan.vercel.app/';
 
   const posts = await postModel.find({});
 

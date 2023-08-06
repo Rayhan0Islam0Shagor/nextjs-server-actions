@@ -6,7 +6,7 @@ import Link from 'next/link';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  metadataBase: new URL('https://nextjs-server-actions-dusky.vercel.app/'),
+  metadataBase: new URL('https://nextjs-seo-rayhan.vercel.app/'),
   title: {
     default: 'NextJs Seo | Home',
     template: '%s | NextJs Seo',
